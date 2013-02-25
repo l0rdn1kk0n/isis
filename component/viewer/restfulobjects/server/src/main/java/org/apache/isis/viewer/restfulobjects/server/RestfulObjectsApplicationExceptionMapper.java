@@ -37,12 +37,14 @@ import org.apache.isis.viewer.restfulobjects.applib.util.JsonMapper;
 @Provider
 public class RestfulObjectsApplicationExceptionMapper implements ExceptionMapper<RestfulObjectsApplicationException> {
 
+    private static final String WARNING_HEADER_PREFIX = "199 RestfulObjects ";
+
     @Override
     public Response toResponse(final RestfulObjectsApplicationException ex) {
         final ResponseBuilder builder = Response.status(ex.getHttpStatusCode().getJaxrsStatusType()).type(RestfulMediaType.APPLICATION_JSON_ERROR).entity(jsonFor(ex));
         final String message = ex.getMessage();
         if (message != null) {
-            builder.header(RestfulResponse.Header.WARNING.getName(), message);
+            builder.header(RestfulResponse.Header.WARNING.getName(), WARNING_HEADER_PREFIX + message);
         }
         return builder.build();
     }
