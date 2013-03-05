@@ -184,7 +184,7 @@ public final class DomainResourceHelper {
 
         final OneToOneAssociation property = getPropertyThatIsVisibleAndUsable(propertyId, Intent.ACCESS, where);
 
-        final ObjectPropertyReprRenderer renderer = new ObjectPropertyReprRenderer(resourceContext, null, JsonRepresentation.newMap());
+        final ObjectPropertyReprRenderer renderer = new ObjectPropertyReprRenderer(resourceContext, null, null, JsonRepresentation.newMap());
 
         renderer.with(new ObjectAndProperty(objectAdapter, property)).usingLinkTo(adapterLinkTo);
 
@@ -201,7 +201,7 @@ public final class DomainResourceHelper {
 
         final OneToManyAssociation collection = getCollectionThatIsVisibleAndUsable(collectionId, Intent.ACCESS, where);
 
-        final ObjectCollectionReprRenderer renderer = new ObjectCollectionReprRenderer(resourceContext, null, JsonRepresentation.newMap());
+        final ObjectCollectionReprRenderer renderer = new ObjectCollectionReprRenderer(resourceContext, null, null, JsonRepresentation.newMap());
 
         renderer.with(new ObjectAndCollection(objectAdapter, collection)).usingLinkTo(adapterLinkTo);
 
@@ -217,7 +217,7 @@ public final class DomainResourceHelper {
     Response actionPrompt(final String actionId, Where where) {
         final ObjectAction action = getObjectActionThatIsVisibleAndUsable(actionId, Intent.ACCESS, where);
 
-        final ObjectActionReprRenderer renderer = new ObjectActionReprRenderer(resourceContext, null, JsonRepresentation.newMap());
+        final ObjectActionReprRenderer renderer = new ObjectActionReprRenderer(resourceContext, null, null, JsonRepresentation.newMap());
 
         renderer.with(new ObjectAndAction(objectAdapter, action)).usingLinkTo(adapterLinkTo).asStandalone();
 
