@@ -21,6 +21,7 @@ component/security/sql/hsql-db/
 # log files
 datanucleus.log
 isis.log
+hs_err_pid*.log
 
 # Package Files #
 *.jar
@@ -29,3 +30,6 @@ isis.log
 
 pom.xml.tag
 pom.xml.releaseBackup
+
+*.jdproj
+JArchitectOut/
