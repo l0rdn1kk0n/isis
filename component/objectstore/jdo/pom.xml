@@ -35,6 +35,8 @@
 		<docbkxGuideTitle>Apache Isis JDO ObjectStore</docbkxGuideTitle>
 		<docbkxGuideSubTitle>Customization, Configuration and Deployment Guide</docbkxGuideSubTitle>
 		<docbkxGuideName>isis-jdo-objectstore</docbkxGuideName>
+        
+        <datanucleus.version>[3.1.99, )</datanucleus.version>
 	</properties>
 
 	<!-- used in Site generation for relative references. -->
@@ -153,17 +155,17 @@
             <dependency>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-core</artifactId>
-                <version>[3.1.99, )</version>
+                <version>${datanucleus.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-api-jdo</artifactId>
-                <version>[3.1.99, )</version>
+                <version>${datanucleus.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-rdbms</artifactId>
-                <version>[3.1.99, )</version>
+                <version>${datanucleus.version}</version>
             </dependency>
 	        <dependency>
 	            <groupId>org.datanucleus</groupId>
@@ -185,4 +187,14 @@
 
 		</dependencies>
 	</dependencyManagement>
+    
+    <profiles>
+        <profile>
+            <id>apache-release</id>
+            <properties>
+                <!-- workaround for http://jira.codehaus.org/browse/MRRESOURCES-58 -->
+                <datanucleus.version>LATEST</datanucleus.version>
+            </properties>
+        </profile>        
+    </profiles>
 </project>
