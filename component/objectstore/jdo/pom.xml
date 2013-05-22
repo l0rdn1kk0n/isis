@@ -193,7 +193,7 @@
             <id>apache-release</id>
             <properties>
                 <!-- workaround for http://jira.codehaus.org/browse/MRRESOURCES-58 -->
-                <datanucleus.version>LATEST</datanucleus.version>
+                <datanucleus.version>3.2.2</datanucleus.version>
             </properties>
         </profile>        
     </profiles>
