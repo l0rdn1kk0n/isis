@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>org.apache.isis.core</groupId>
 		<artifactId>isis</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
 		<relativePath>../../../core/pom.xml</relativePath>
 	</parent>
 
@@ -76,6 +76,8 @@
 	                        <exclude>**/*.project</exclude>
 	                        <exclude>**/.classpath</exclude>
 	                        <exclude>**/.settings/**</exclude>
+
+	                        <exclude>**/*.log</exclude>
 	                    </excludes>
                     </configuration>
 	            </plugin>
