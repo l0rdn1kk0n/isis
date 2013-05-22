@@ -24,7 +24,7 @@
 	<parent>
 		<groupId>org.apache.isis.core</groupId>
 		<artifactId>isis</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
 		<relativePath>../../../core/pom.xml</relativePath>
 	</parent>
 
@@ -42,7 +42,6 @@
 
         <wicket.version>6.7.0</wicket.version>
         <wicket-jquery-ui.version>6.7.0</wicket-jquery-ui.version>
-        <wicketstuff.version>6.7.0</wicketstuff.version>
         <wicket-select2.version>2.2.2</wicket-select2.version>
 
         <docbkxGuideTitle>Apache Isis Wicket Viewer</docbkxGuideTitle>
@@ -81,10 +80,30 @@
 	                        <exclude>**/.classpath</exclude>
 	                        <exclude>**/.settings/**</exclude>
                             <exclude>**/*.pdn</exclude>
+                            <exclude>**/*.min.css</exclude>
+                            <exclude>**/wicket-xhtml1.4-strict.dtd</exclude>
                             
                             <!-- not released code, so excluded -->
                             <exclude>jquery-ui/**</exclude>
 	                    </excludes>
+                        <licenses>
+                          <license implementation="org.apache.rat.analysis.license.SimplePatternBasedLicense">
+                            <licenseFamilyCategory>JGROWL</licenseFamilyCategory>
+                            <licenseFamilyName>MIT</licenseFamilyName>
+                            <notes />
+                            <patterns>
+                              <pattern>licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)</pattern>
+                            </patterns>
+                          </license>
+                          <license implementation="org.apache.rat.analysis.license.SimplePatternBasedLicense">
+                            <licenseFamilyCategory>JQURYUI</licenseFamilyCategory>
+                            <licenseFamilyName>MIT</licenseFamilyName>
+                            <notes />
+                            <patterns>
+                              <pattern>jQuery Foundation and other contributors Licensed MIT</pattern>
+                            </patterns>
+                          </license>
+                      </licenses>
                     </configuration>
 	            </plugin>
 			</plugins>
