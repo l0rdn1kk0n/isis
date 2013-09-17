@@ -129,7 +129,8 @@ public abstract class PanelAbstract<T extends IModel<?>> extends Panel implement
      * their own CSS if required.
      */
     protected void renderHead(final IHeaderResponse response, final Class<?> cls) {
-        PanelUtil.renderHead(response, cls);
+        // removed in ISIS-537 
+        // PanelUtil.renderHead(response, cls);
     }
 
 

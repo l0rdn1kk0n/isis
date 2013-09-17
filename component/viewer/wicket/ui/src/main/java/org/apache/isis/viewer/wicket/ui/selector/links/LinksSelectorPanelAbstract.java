@@ -274,7 +274,9 @@ public abstract class LinksSelectorPanelAbstract<T extends IModel<?>> extends Pa
     @Override
     public void renderHead(final IHeaderResponse response) {
         super.renderHead(response);
-        renderHead(response, LinksSelectorPanelAbstract.class);
+        
+        // removed in ISIS-537 
+        // renderHead(response, LinksSelectorPanelAbstract.class);
     }
 
 }

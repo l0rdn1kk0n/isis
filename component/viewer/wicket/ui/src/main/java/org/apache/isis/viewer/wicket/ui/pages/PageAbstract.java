@@ -87,8 +87,9 @@ public abstract class PageAbstract extends WebPage {
     public static final String ID_ABOUT_LINK = "aboutLink";
 
     private static final JavaScriptResourceReference JQUERY_JGROWL_JS = new JavaScriptResourceReference(PageAbstract.class, "jquery.jgrowl.js");
-    private static final JavaScriptResourceReference JQUERY_ISIS_WICKET_VIEWER_JS = new JavaScriptResourceReference(PageAbstract.class, "jquery.isis.wicket.viewer.js");
     
+    // removed in ISIS-537
+    //private static final JavaScriptResourceReference JQUERY_ISIS_WICKET_VIEWER_JS = new JavaScriptResourceReference(PageAbstract.class, "jquery.isis.wicket.viewer.js");
     //private static final JavaScriptResourceReference BOOTSTRAP_JS = new JavaScriptResourceReference(PageAbstract.class, "bootstrap/js/bootstrap.min.js");
 
     /**
@@ -170,9 +171,14 @@ public abstract class PageAbstract extends WebPage {
     @Override
     public void renderHead(IHeaderResponse response) {
         super.renderHead(response);
-        response.render(new PriorityHeaderItem(JavaScriptHeaderItem.forReference(Application.get().getJavaScriptLibrarySettings().getJQueryReference())));
+        
+        // removed in ISIS-537
+        //response.render(new PriorityHeaderItem(JavaScriptHeaderItem.forReference(Application.get().getJavaScriptLibrarySettings().getJQueryReference())));
+        
         response.render(new PriorityHeaderItem(JavaScriptReferenceHeaderItem.forReference(JQUERY_JGROWL_JS)));
-        response.render(new PriorityHeaderItem(JavaScriptReferenceHeaderItem.forReference(JQUERY_ISIS_WICKET_VIEWER_JS)));
+        
+        // removed in ISIS-537
+        //response.render(new PriorityHeaderItem(JavaScriptReferenceHeaderItem.forReference(JQUERY_ISIS_WICKET_VIEWER_JS)));
         //response.render(new PriorityHeaderItem(JavaScriptReferenceHeaderItem.forReference(BOOTSTRAP_JS)));
         
         final String feedbackMsg = JGrowlUtil.asJGrowlCalls(getMessageBroker());

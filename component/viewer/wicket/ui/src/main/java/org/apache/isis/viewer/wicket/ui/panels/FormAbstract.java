@@ -74,8 +74,8 @@ public abstract class FormAbstract<T> extends Form<T> implements IHeaderContribu
      */
     protected void renderHead(final IHeaderResponse response, final Class<?> cls) {
         final String url = cls.getSimpleName() + ".css";
-        //response.renderCSSReference(new PackageResourceReference(cls, url));
-        response.render(CssHeaderItem.forReference(new CssResourceReference(cls, url)));
+        // removed in ISIS-537 
+        // response.render(CssHeaderItem.forReference(new CssResourceReference(cls, url)));
     }
 
 

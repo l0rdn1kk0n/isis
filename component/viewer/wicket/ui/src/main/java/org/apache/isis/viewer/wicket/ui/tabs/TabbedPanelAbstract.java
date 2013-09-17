@@ -39,7 +39,8 @@ public abstract class TabbedPanelAbstract<T extends IModel<?>> extends PanelAbst
     @Override
     public void renderHead(final IHeaderResponse response) {
         super.renderHead(response);
-        renderHead(response, TabbedPanelAbstract.class);
+        // removed in ISIS-537 
+        // renderHead(response, TabbedPanelAbstract.class);
     }
 
 }

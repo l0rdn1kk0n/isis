@@ -81,7 +81,8 @@ public class BookmarkedPagesPanel extends PanelAbstract<BookmarkedPagesModel> {
             private static final long serialVersionUID = 1L;
             @Override
             public void renderHead(IHeaderResponse response) {
-                response.render(JavaScriptReferenceHeaderItem.forReference(SLIDE_PANEL_JS));
+                // removed in ISIS-537
+                // response.render(JavaScriptReferenceHeaderItem.forReference(SLIDE_PANEL_JS));
             }
         };
         // allow to be updated by AjaxLink
