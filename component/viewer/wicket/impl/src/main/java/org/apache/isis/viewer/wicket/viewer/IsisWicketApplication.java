@@ -29,6 +29,9 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 
+import de.agilecoders.wicket.core.Bootstrap;
+import de.agilecoders.wicket.core.settings.BootstrapSettings;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.wicket.Application;
@@ -218,6 +221,13 @@ public class IsisWicketApplication extends AuthenticatedWebApplication implement
         this.bookmarkedPagesModel = new BookmarkedPagesModel();
 
         initWicketComponentInjection(injector);
+        
+        
+        BootstrapSettings settings = new BootstrapSettings();
+        // ISIS-537: review, this didn't compoile
+        // settings.minify(true); // use minimized version of all bootstrap references
+
+        Bootstrap.install(this, settings);
     }
     
     private void determineDeploymentTypeIfRequired() {
