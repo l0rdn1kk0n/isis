@@ -32,11 +32,11 @@ import com.google.javascript.jscomp.CompilationLevel;
 
 import de.agilecoders.wicket.core.Bootstrap;
 import de.agilecoders.wicket.core.markup.html.RenderJavaScriptToFooterHeaderResponseDecorator;
-import de.agilecoders.wicket.core.markup.html.references.BootstrapPrettifyCssReference;
-import de.agilecoders.wicket.core.markup.html.references.BootstrapPrettifyJavaScriptReference;
+import de.agilecoders.wicket.core.markup.html.bootstrap.behavior.BootstrapResourcesBehavior;
 import de.agilecoders.wicket.core.markup.html.references.ModernizrJavaScriptReference;
 import de.agilecoders.wicket.core.request.resource.caching.version.Adler32ResourceVersion;
 import de.agilecoders.wicket.core.settings.BootstrapSettings;
+import de.agilecoders.wicket.core.settings.DefaultThemeProvider;
 import de.agilecoders.wicket.core.settings.ThemeProvider;
 import de.agilecoders.wicket.extensions.javascript.GoogleClosureJavaScriptCompressor;
 import de.agilecoders.wicket.extensions.javascript.YuiCssCompressor;
@@ -45,11 +45,8 @@ import de.agilecoders.wicket.extensions.markup.html.bootstrap.html5player.Html5P
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.icon.OpenWebIconsCssReference;
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIJavaScriptReference;
 import de.agilecoders.wicket.less.BootstrapLess;
-import de.agilecoders.wicket.themes.markup.html.google.GoogleTheme;
-import de.agilecoders.wicket.themes.markup.html.metro.MetroTheme;
-import de.agilecoders.wicket.themes.markup.html.wicket.WicketTheme;
-import de.agilecoders.wicket.themes.settings.BootswatchThemeProvider;
-
+import org.apache.wicket.Component;
+import org.apache.wicket.application.IComponentInstantiationListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.wicket.Application;
@@ -63,7 +60,6 @@ import org.apache.wicket.guice.GuiceComponentInjector;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.Request;
 import org.apache.wicket.request.Response;
-import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.caching.FilenameWithVersionResourceCachingStrategy;
 import org.apache.wicket.request.resource.caching.NoOpResourceCachingStrategy;
@@ -226,6 +222,8 @@ public class IsisWicketApplication extends AuthenticatedWebApplication implement
         final String webInfDir = getServletContext().getRealPath("/WEB-INF");
         loggingConfigurer.configureLogging(webInfDir, new String[0]);
 
+        // TODO miha: this will be overridden by bootstrap with ONE_PASS_RENDER, i have to check
+        //            whether this is ok or not for viewer application
         getRequestCycleSettings().setRenderStrategy(RenderStrategy.REDIRECT_TO_RENDER);
 
         getRequestCycleListeners().add(new WebRequestCycleForIsis());
@@ -259,12 +257,7 @@ public class IsisWicketApplication extends AuthenticatedWebApplication implement
     
     
     private void configureBootstrap() {
-        final ThemeProvider themeProvider = new BootswatchThemeProvider() {{
-            add(new MetroTheme());
-            add(new GoogleTheme());
-            add(new WicketTheme());
-            defaultTheme("wicket");
-        }};
+        final ThemeProvider themeProvider = new DefaultThemeProvider();
 
         final BootstrapSettings settings = new BootstrapSettings();
         settings.setJsResourceFilterName("footer-container")
@@ -272,6 +265,19 @@ public class IsisWicketApplication extends AuthenticatedWebApplication implement
         Bootstrap.install(this, settings);
 
         BootstrapLess.install(this);
+
+        /**
+         * add bootstrap resource behavior to all new pages. This is necessary to load all
+         * bootstrap styles on each page even if they don't use any bootstrap component.
+         */
+        getComponentInstantiationListeners().add(new IComponentInstantiationListener() {
+            @Override
+            public void onInstantiation(Component component) {
+                if (component instanceof Page) {
+                    BootstrapResourcesBehavior.addTo(component);
+                }
+            }
+        });
     }
 
     /**
