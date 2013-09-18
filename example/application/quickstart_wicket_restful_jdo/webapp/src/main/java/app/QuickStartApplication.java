@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import com.google.common.base.Joiner;
@@ -32,17 +31,15 @@ import com.google.inject.Module;
 import com.google.inject.name.Names;
 import com.google.inject.util.Modules;
 import com.google.inject.util.Providers;
-
-import org.apache.wicket.Session;
-import org.apache.wicket.request.Request;
-import org.apache.wicket.request.Response;
-import org.apache.wicket.request.http.WebRequest;
-
+import net.ftlines.wicketsource.WicketSource;
 import org.apache.isis.viewer.wicket.ui.app.registry.ComponentFactoryRegistrar;
 import org.apache.isis.viewer.wicket.ui.pages.PageClassList;
 import org.apache.isis.viewer.wicket.viewer.IsisWicketApplication;
 import org.apache.isis.viewer.wicket.viewer.integration.wicket.AuthenticatedWebSessionForIsis;
-import org.apache.isis.viewer.wicket.viewer.registries.pages.PageClassListDefault;
+import org.apache.wicket.Session;
+import org.apache.wicket.request.Request;
+import org.apache.wicket.request.Response;
+import org.apache.wicket.request.http.WebRequest;
 
 
 /**
@@ -75,7 +72,16 @@ public class QuickStartApplication extends IsisWicketApplication {
      * for demos only, obvious.
      */
     private final static boolean DEMO_MODE_USING_CREDENTIALS_AS_QUERYARGS = false;
-    
+
+    @Override
+    protected void init() {
+        super.init();
+
+        if (usesDevelopmentConfig()) {
+            WicketSource.configure(this);
+        }
+    }
+
     @Override
     public Session newSession(final Request request, final Response response) {
         if(!DEMO_MODE_USING_CREDENTIALS_AS_QUERYARGS) {

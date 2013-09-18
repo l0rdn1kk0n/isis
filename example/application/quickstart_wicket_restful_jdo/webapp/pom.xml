@@ -216,6 +216,12 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>net.ftlines.wicket-source</groupId>
+            <artifactId>wicket-source</artifactId>
+            <version>6.0.0.8</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
