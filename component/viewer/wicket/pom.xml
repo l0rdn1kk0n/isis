@@ -7,9 +7,9 @@
   to you under the Apache License, Version 2.0 (the
   "License"); you may not use this file except in compliance
   with the License.  You may obtain a copy of the License at
-  
+
          http://www.apache.org/licenses/LICENSE-2.0
-         
+
   Unless required by applicable law or agreed to in writing,
   software distributed under the License is distributed on an
   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -24,38 +24,38 @@
 	<parent>
 		<groupId>org.apache.isis.core</groupId>
 		<artifactId>isis</artifactId>
-        <version>1.3.0-SNAPSHOT</version>
+		<version>1.3.0-SNAPSHOT</version>
 		<relativePath>../../../core/pom.xml</relativePath>
 	</parent>
 
 	<groupId>org.apache.isis.viewer</groupId>
 	<artifactId>isis-viewer-wicket</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
+	<version>1.3.0-SNAPSHOT</version>
 
 	<name>Isis Wicket Viewer</name>
 
 	<packaging>pom</packaging>
 
-    <properties>
-        <siteBaseDir>.</siteBaseDir>
-        <relativeUrl />
+	<properties>
+		<siteBaseDir>.</siteBaseDir>
+		<relativeUrl />
 
-        <wicket.version>6.10.0</wicket.version>
-        
-        <wicket-jquery-ui.version>6.10.0</wicket-jquery-ui.version>
-        <wicketstuff.version>6.10.0</wicketstuff.version>
-        
-        <wicket-bootstrap.version>0.8.4</wicket-bootstrap.version>
-        
-        <wicket-select2.version>2.2.2</wicket-select2.version>
+		<wicket.version>6.10.0</wicket.version>
 
-        <docbkxGuideTitle>Apache Isis Wicket Viewer</docbkxGuideTitle>
-        <docbkxGuideSubTitle>Customization, Configuration and Deployment Guide</docbkxGuideSubTitle>
-        <docbkxGuideName>isis-wicket-viewer</docbkxGuideName>
-    </properties>
+		<wicket-jquery-ui.version>6.10.0</wicket-jquery-ui.version>
+		<wicketstuff.version>6.10.0</wicketstuff.version>
 
-    <!-- used in Site generation for relative references. -->
-    <url>http://isis.apache.org/${relativeUrl}</url>
+		<wicket-bootstrap.version>0.8.4</wicket-bootstrap.version>
+
+		<wicket-select2.version>2.2.2</wicket-select2.version>
+
+		<docbkxGuideTitle>Apache Isis Wicket Viewer</docbkxGuideTitle>
+		<docbkxGuideSubTitle>Customization, Configuration and Deployment Guide</docbkxGuideSubTitle>
+		<docbkxGuideName>isis-wicket-viewer</docbkxGuideName>
+	</properties>
+
+	<!-- used in Site generation for relative references. -->
+	<url>http://isis.apache.org/${relativeUrl}</url>
 
 	<modules>
 		<module>model</module>
@@ -67,30 +67,30 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-                <!-- Apache Release Audit Tool -->
-                <plugin>
-                    <groupId>org.apache.rat</groupId>
-                    <artifactId>apache-rat-plugin</artifactId>
-                    <version>0.8</version>
-	                <configuration>
-	                    <excludes>
-	                    	<!-- 
-	                    	overriding inherited excludes from oia.core:isis 
-	                    	with a more specific set for this component
-	                    	 -->
-	                        <exclude>**/target/**</exclude>
-	                        <exclude>**/target-ide/**</exclude>
+				<!-- Apache Release Audit Tool -->
+				<plugin>
+					<groupId>org.apache.rat</groupId>
+					<artifactId>apache-rat-plugin</artifactId>
+					<version>0.8</version>
+					<configuration>
+						<excludes>
+							<!--
+							overriding inherited excludes from oia.core:isis
+							with a more specific set for this component
+							 -->
+							<exclude>**/target/**</exclude>
+							<exclude>**/target-ide/**</exclude>
 
-	                        <exclude>**/*.project</exclude>
-	                        <exclude>**/.classpath</exclude>
-	                        <exclude>**/.settings/**</exclude>
-                            <exclude>**/*.pdn</exclude>
-                            
-                            <!-- not released code, so excluded -->
-                            <exclude>jquery-ui/**</exclude>
-	                    </excludes>
-                    </configuration>
-	            </plugin>
+							<exclude>**/*.project</exclude>
+							<exclude>**/.classpath</exclude>
+							<exclude>**/.settings/**</exclude>
+							<exclude>**/*.pdn</exclude>
+
+							<!-- not released code, so excluded -->
+							<exclude>jquery-ui/**</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -102,10 +102,10 @@
 		</plugins>
 	</build>
 
-    <dependencyManagement>
-        <dependencies>
+	<dependencyManagement>
+		<dependencies>
 
-	    	<!-- also for benefit of application developers, using scope=import -->
+			<!-- also for benefit of application developers, using scope=import -->
 			<dependency>
 				<groupId>org.apache.isis.viewer</groupId>
 				<artifactId>isis-viewer-wicket-model</artifactId>
@@ -114,31 +114,31 @@
 			<dependency>
 				<groupId>org.apache.isis.viewer</groupId>
 				<artifactId>isis-viewer-wicket-model</artifactId>
-                <version>1.3.0-SNAPSHOT</version>
+				<version>1.3.0-SNAPSHOT</version>
 				<scope>test</scope>
 				<type>test-jar</type>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.isis.viewer</groupId>
 				<artifactId>isis-viewer-wicket-ui</artifactId>
-                <version>1.3.0-SNAPSHOT</version>
+				<version>1.3.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.isis.viewer</groupId>
 				<artifactId>isis-viewer-wicket-ui</artifactId>
-                <version>1.3.0-SNAPSHOT</version>
+				<version>1.3.0-SNAPSHOT</version>
 				<scope>test</scope>
 				<type>test-jar</type>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.isis.viewer</groupId>
 				<artifactId>isis-viewer-wicket-impl</artifactId>
-                <version>1.3.0-SNAPSHOT</version>
+				<version>1.3.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.isis.viewer</groupId>
 				<artifactId>isis-viewer-wicket-impl</artifactId>
-                <version>1.3.0-SNAPSHOT</version>
+				<version>1.3.0-SNAPSHOT</version>
 				<scope>test</scope>
 				<type>test-jar</type>
 			</dependency>
@@ -159,7 +159,7 @@
 				<version>${wicket.version}</version>
 				<exclusions>
 					<exclusion>
-	        			<!-- for dependency convergence -->
+						<!-- for dependency convergence -->
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>
 					</exclusion>
@@ -172,7 +172,7 @@
 				<version>${wicket.version}</version>
 				<exclusions>
 					<exclusion>
-		        			<!-- for dependency convergence -->
+							<!-- for dependency convergence -->
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>
 					</exclusion>
@@ -185,7 +185,7 @@
 				<version>${wicket.version}</version>
 				<exclusions>
 					<exclusion>
-		        			<!-- for dependency convergence -->
+							<!-- for dependency convergence -->
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>
 					</exclusion>
@@ -198,7 +198,7 @@
 				<version>${wicket.version}</version>
 				<exclusions>
 					<exclusion>
-		        			<!-- for dependency convergence -->
+							<!-- for dependency convergence -->
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>
 					</exclusion>
@@ -211,7 +211,7 @@
 				<version>${wicket.version}</version>
 				<exclusions>
 					<exclusion>
-		        			<!-- for dependency convergence -->
+							<!-- for dependency convergence -->
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>
 					</exclusion>
@@ -224,7 +224,7 @@
 				<version>${wicket.version}</version>
 				<exclusions>
 					<exclusion>
-		        			<!-- for dependency convergence -->
+							<!-- for dependency convergence -->
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>
 					</exclusion>
@@ -237,7 +237,7 @@
 				<version>${wicket.version}</version>
 				<exclusions>
 					<exclusion>
-		        			<!-- for dependency convergence -->
+							<!-- for dependency convergence -->
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>
 					</exclusion>
@@ -245,54 +245,54 @@
 			</dependency>
 
 
-            <!-- Wicket-Bootstrap -->
-            <dependency>
-                <groupId>de.agilecoders.wicket</groupId>
-                <artifactId>wicket-bootstrap-core</artifactId>
-                <version>${wicket-bootstrap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.agilecoders.wicket</groupId>
-                <artifactId>wicket-bootstrap-extensions</artifactId>
-                <version>${wicket-bootstrap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.agilecoders.wicket</groupId>
-                <artifactId>wicket-bootstrap-themes</artifactId>
-                <version>${wicket-bootstrap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.agilecoders.wicket</groupId>
-                <artifactId>wicket-bootstrap-less</artifactId>
-                <version>${wicket-bootstrap.version}</version>
-            </dependency>
-            
-            
-            <!-- Wicket-JQuery-UI -->
-            <dependency>
-                <groupId>com.googlecode.wicket-jquery-ui</groupId>
-                <artifactId>wicket-jquery-ui-core</artifactId>
-                <version>${wicket-jquery-ui.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.googlecode.wicket-jquery-ui</groupId>
-                <artifactId>wicket-jquery-ui</artifactId>
-                <version>${wicket-jquery-ui.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.googlecode.wicket-jquery-ui</groupId>
-                <artifactId>wicket-jquery-ui-plugins</artifactId>
-                <version>${wicket-jquery-ui.version}</version>
-            </dependency>
-
-            <!-- Wicket-Select2 -->
+			<!-- Wicket-Bootstrap -->
 			<dependency>
-			    <groupId>com.vaynberg.wicket.select2</groupId>
-			    <artifactId>wicket-select2</artifactId>
-			    <version>${wicket-select2.version}</version>
+				<groupId>de.agilecoders.wicket</groupId>
+				<artifactId>wicket-bootstrap-core</artifactId>
+				<version>${wicket-bootstrap.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.agilecoders.wicket</groupId>
+				<artifactId>wicket-bootstrap-extensions</artifactId>
+				<version>${wicket-bootstrap.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.agilecoders.wicket</groupId>
+				<artifactId>wicket-bootstrap-themes</artifactId>
+				<version>${wicket-bootstrap.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.agilecoders.wicket</groupId>
+				<artifactId>wicket-bootstrap-less</artifactId>
+				<version>${wicket-bootstrap.version}</version>
+			</dependency>
+
+
+			<!-- Wicket-JQuery-UI -->
+			<dependency>
+				<groupId>com.googlecode.wicket-jquery-ui</groupId>
+				<artifactId>wicket-jquery-ui-core</artifactId>
+				<version>${wicket-jquery-ui.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.wicket-jquery-ui</groupId>
+				<artifactId>wicket-jquery-ui</artifactId>
+				<version>${wicket-jquery-ui.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.wicket-jquery-ui</groupId>
+				<artifactId>wicket-jquery-ui-plugins</artifactId>
+				<version>${wicket-jquery-ui.version}</version>
+			</dependency>
+
+			<!-- Wicket-Select2 -->
+			<dependency>
+				<groupId>com.vaynberg.wicket.select2</groupId>
+				<artifactId>wicket-select2</artifactId>
+				<version>${wicket-select2.version}</version>
 				<exclusions>
 					<exclusion>
-		        			<!-- for dependency convergence -->
+							<!-- for dependency convergence -->
 						<groupId>org.apache.wicket</groupId>
 						<artifactId>wicket-core</artifactId>
 					</exclusion>
