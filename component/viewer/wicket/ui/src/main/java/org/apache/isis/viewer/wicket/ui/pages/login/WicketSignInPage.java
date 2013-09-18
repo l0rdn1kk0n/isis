@@ -118,7 +118,7 @@ public class WicketSignInPage extends WebPage {
     }
 
     private SignInPanel addSignInPanel(boolean rememberMe) {
-        final SignInPanel signInPanel = new SignInPanel("signInPanel", rememberMe);
+        final SignInPanel signInPanel = new WicketSignInPanel("signInPanel", rememberMe);
         add(signInPanel);
         return signInPanel;
     }

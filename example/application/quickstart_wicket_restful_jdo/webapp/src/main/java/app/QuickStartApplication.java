@@ -34,6 +34,7 @@ import com.google.inject.util.Providers;
 import net.ftlines.wicketsource.WicketSource;
 import org.apache.isis.viewer.wicket.ui.app.registry.ComponentFactoryRegistrar;
 import org.apache.isis.viewer.wicket.ui.pages.PageClassList;
+import org.apache.isis.viewer.wicket.ui.pages.login.WicketSignInPage;
 import org.apache.isis.viewer.wicket.viewer.IsisWicketApplication;
 import org.apache.isis.viewer.wicket.viewer.integration.wicket.AuthenticatedWebSessionForIsis;
 import org.apache.wicket.Session;
@@ -80,6 +81,8 @@ public class QuickStartApplication extends IsisWicketApplication {
         if (usesDevelopmentConfig()) {
             WicketSource.configure(this);
         }
+
+        mountPage("login", WicketSignInPage.class);
     }
 
     @Override
