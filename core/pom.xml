@@ -73,7 +73,9 @@
 
 		<license.additional-notes>In addition, Isis includes a copy of JQuery core and JQuery UI.  These are both licensed under the MIT license [1].
 
-[1] http://jquery.org/license/</license.additional-notes>        
+[1] http://jquery.org/license/</license.additional-notes>
+
+        <jetty.version>7.6.13.v20130916</jetty.version>
     </properties>
 
     <scm>
@@ -851,14 +853,15 @@
                 <!-- Runtime: jetty -->
                 <plugin>
                     <groupId>org.mortbay.jetty</groupId>
-                    <artifactId>maven-jetty-plugin</artifactId>
-                    <version>6.1.25</version>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${jetty.version}</version>
                     <configuration>
                         <webAppConfig>
                             <contextPath>webapp</contextPath>
                         </webAppConfig>
                     </configuration>
                 </plugin>
+
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -1348,15 +1351,10 @@ ${license.additional-notes}
 
             <!-- Web development -->
             <dependency>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty</artifactId>
-                <version>6.1.26</version>
-                <exclusions>
-                    <exclusion>
-		                <groupId>org.mortbay.jetty</groupId>
-		                <artifactId>servlet-api</artifactId>
-                    </exclusion>
-                </exclusions>
+                <groupId>org.eclipse.jetty.aggregate</groupId>
+                <artifactId>jetty-all-server</artifactId>
+                <version>${jetty.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <dependency>
