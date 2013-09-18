@@ -91,6 +91,7 @@
 
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
                 <configuration>
                     <warName>quickstart</warName>
                     <archive>
