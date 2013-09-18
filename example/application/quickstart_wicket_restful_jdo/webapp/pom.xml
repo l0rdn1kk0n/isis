@@ -299,7 +299,14 @@
             <artifactId>danhaywood-isis-wicket-fullcalendar</artifactId>
         </dependency>
          -->
-         
+        <!--  JETTY DEPENDENCIES FOR TESTING  -->
+        <dependency>
+            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <artifactId>jetty-all-server</artifactId>
+            <version>${jetty.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
