@@ -44,7 +44,6 @@ import de.agilecoders.wicket.extensions.markup.html.bootstrap.html5player.Html5P
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.html5player.Html5PlayerJavaScriptReference;
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.icon.OpenWebIconsCssReference;
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIJavaScriptReference;
-import de.agilecoders.wicket.less.BootstrapLess;
 import org.apache.wicket.Component;
 import org.apache.wicket.application.IComponentInstantiationListener;
 import org.slf4j.Logger;
@@ -263,8 +262,6 @@ public class IsisWicketApplication extends AuthenticatedWebApplication implement
         settings.setJsResourceFilterName("footer-container")
                 .setThemeProvider(themeProvider);
         Bootstrap.install(this, settings);
-
-        BootstrapLess.install(this);
 
         /**
          * add bootstrap resource behavior to all new pages. This is necessary to load all

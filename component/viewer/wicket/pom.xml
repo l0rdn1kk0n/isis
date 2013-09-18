@@ -45,7 +45,7 @@
 		<wicket-jquery-ui.version>6.10.0</wicket-jquery-ui.version>
 		<wicketstuff.version>6.10.0</wicketstuff.version>
 
-		<wicket-bootstrap.version>0.8.4</wicket-bootstrap.version>
+		<wicket-bootstrap.version>0.9.0-SNAPSHOT</wicket-bootstrap.version>
 
 		<wicket-select2.version>2.2.2</wicket-select2.version>
 
@@ -261,12 +261,6 @@
 				<artifactId>wicket-bootstrap-themes</artifactId>
 				<version>${wicket-bootstrap.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>de.agilecoders.wicket</groupId>
-				<artifactId>wicket-bootstrap-less</artifactId>
-				<version>${wicket-bootstrap.version}</version>
-			</dependency>
-
 
 			<!-- Wicket-JQuery-UI -->
 			<dependency>
@@ -298,15 +292,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-
-			<!-- Other -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<!-- NOT SURE WHY THIS ISN'T INHERITED -->
-				<version>1.7.5</version>
-			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
+
 </project>
