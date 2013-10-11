@@ -43,7 +43,7 @@ import de.agilecoders.wicket.extensions.javascript.YuiCssCompressor;
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.html5player.Html5PlayerCssReference;
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.html5player.Html5PlayerJavaScriptReference;
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.icon.OpenWebIconsCssReference;
-import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIJavaScriptReference;
+import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUICoreJavaScriptReference;
 import org.apache.wicket.Component;
 import org.apache.wicket.application.IComponentInstantiationListener;
 import org.slf4j.Logger;
@@ -295,7 +295,7 @@ public class IsisWicketApplication extends AuthenticatedWebApplication implement
 //        );
 
         getResourceBundles().addJavaScriptBundle(IsisWicketApplication.class, "bootstrap-extensions.js",
-                                                 JQueryUIJavaScriptReference.instance(),
+                                                 JQueryUICoreJavaScriptReference.instance(),
                                                  Html5PlayerJavaScriptReference.instance()
         );
 
