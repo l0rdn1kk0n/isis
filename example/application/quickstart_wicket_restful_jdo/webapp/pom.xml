@@ -184,6 +184,13 @@
             <groupId>org.apache.isis.viewer</groupId>
             <artifactId>isis-viewer-wicket-impl</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>de.agilecoders.wicket.webjars</groupId>
+            <artifactId>wicket-webjars</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.isis.viewer</groupId>
             <artifactId>isis-viewer-restfulobjects-server</artifactId>
@@ -220,7 +227,6 @@
             <groupId>net.ftlines.wicket-source</groupId>
             <artifactId>wicket-source</artifactId>
             <version>6.0.0.8</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
